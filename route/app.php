@@ -1,8 +1,11 @@
 <?php
 use think\facade\Route;
 Route::group('admin', function() {
+    //登录
     Route::rule('Login/index', 'admin.Login/index', 'post')->middleware([app\middleware\AdminResponse::class]);
+    //退出登录
     Route::rule('Login/logout', 'admin.Login/logout', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //
     Route::rule('Menu/changeStatus', 'admin.Menu/changeStatus', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
     Route::rule('Menu/add', 'admin.Menu/add', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
     Route::rule('Menu/edit', 'admin.Menu/edit', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
@@ -61,5 +64,6 @@ Route::group('admin', function() {
     Route::rule('Login/getUserInfo', 'admin.Login/getUserInfo', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminResponse::class]);
     Route::rule('Auth/editRule', 'admin.Auth/editRule', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
     Route::rule('Login/getAccessMenu', 'admin.Login/getAccessMenu', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminResponse::class]);
+    //Miss路由
     Route::miss('admin.Miss/index');
 });

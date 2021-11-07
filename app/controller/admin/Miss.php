@@ -12,7 +12,7 @@ class Miss extends Base {
         if ($this->request->isOptions()) {
             return $this->buildSuccess();
         } else {
-            return $this->buildFailed(ReturnCode::INVALID, '接口地址异常');
+            return $this->buildFailed(ReturnCode::INVALID, '接口地址异常~~');
         }
     }
 }
