@@ -5,23 +5,39 @@ Route::group('admin', function() {
     Route::rule('Login/index', 'admin.Login/index', 'post')->middleware([app\middleware\AdminResponse::class]);
     //退出登录
     Route::rule('Login/logout', 'admin.Login/logout', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
-    //
+    //菜单状态编辑
     Route::rule('Menu/changeStatus', 'admin.Menu/changeStatus', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //新增菜单
     Route::rule('Menu/add', 'admin.Menu/add', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //编辑菜单
     Route::rule('Menu/edit', 'admin.Menu/edit', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //删除菜单
     Route::rule('Menu/del', 'admin.Menu/del', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //获取当前组的全部用户
     Route::rule('User/getUsers', 'admin.User/getUsers', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //用户状态编辑
     Route::rule('User/changeStatus', 'admin.User/changeStatus', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //新增用户
     Route::rule('User/add', 'admin.User/add', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //编辑用户
     Route::rule('User/edit', 'admin.User/edit', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //删除用户
     Route::rule('User/del', 'admin.User/del', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //权限组状态编辑
     Route::rule('Auth/changeStatus', 'admin.Auth/changeStatus', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //从指定组中删除指定用户
     Route::rule('Auth/delMember', 'admin.Auth/delMember', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //新增组
     Route::rule('Auth/add', 'admin.Auth/add', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //编辑用户组
     Route::rule('Auth/edit', 'admin.Auth/edit', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //删除组
     Route::rule('Auth/del', 'admin.Auth/del', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //获取全部已开放的可选组
     Route::rule('Auth/getGroups', 'admin.Auth/getGroups', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+    //获取组所在权限列表
     Route::rule('Auth/getRuleList', 'admin.Auth/getRuleList', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
+
     Route::rule('App/changeStatus', 'admin.App/changeStatus', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
     Route::rule('App/getAppInfo', 'admin.App/getAppInfo', 'get')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
     Route::rule('App/add', 'admin.App/add', 'post')->middleware([app\middleware\AdminAuth::class, app\middleware\AdminPermission::class, app\middleware\AdminLog::class, app\middleware\AdminResponse::class]);
